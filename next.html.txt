@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Protected Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  #passwordInput {
+    width: calc(100% - 60px);
+    padding: 10px;
+    margin-right: 10px;
+  }
+  #submitButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Please enter the password to continue:</h2>
+
+  <form id="passwordForm">
+    <input type="password" id="passwordInput" placeholder="Enter Password">
+    <button type="submit" id="submitButton">Submit</button>
+  </form>
+</div>
+
+<script>
+document.getElementById("passwordForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  var password = document.getElementById("passwordInput").value;
+
+  if (password === "your_password") {
+    document.body.style.backgroundColor = "green"; // Change background to green
+    setTimeout(function() {
+      window.location.href = "next.html"; // Redirect to next.html
+    }, 1000); // Redirect after 1 second
+  } else {
+    document.body.style.backgroundColor = "red"; // Change background to red
+    setTimeout(function() {
+      window.location.href = "404.html"; // Redirect to 404.html
+    }, 1000); // Redirect after 1 second
+  }
+});
+</script>
+
+</body>
+</html>
