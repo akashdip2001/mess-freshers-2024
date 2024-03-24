@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Protected Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  #passwordInput {
+    width: calc(100% - 60px);
+    padding: 10px;
+    margin-right: 10px;
+  }
+  #submitButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  } 
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Please enter the password to continue:</h2>
+
+  <form id="passwordForm">
+    <input type="password" id="passwordInput" placeholder="Enter Password ..#*">
+    <button type="submit" id="submitButton">Submit</button>
+  </form>
+</div>
+
+<script>
+document.getElementById("passwordForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  var password = document.getElementById("passwordInput").value;
+
+  if (password === "2024#") {
+    document.body.style.backgroundColor = "green"; // Change background to green
+    setTimeout(function() {
+      window.location.href = "https://github.com/akashdip2001/mess-freshers-2024/tree/main/images"; // Redirect to next.html
+    }, 1000); // Redirect after 1 second
+  } else {
+    document.body.style.backgroundColor = "red"; // Change background to red
+    setTimeout(function() {
+      window.location.href = "https://akashdip2001.github.io/mess-freshers-2024/"; // Redirect to 404.html
+    }, 1000); // Redirect after 1 second
+  }
+});
+</script>
+
+</body>
+</html>
